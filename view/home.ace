@@ -1,0 +1,8 @@
+= content main
+  h2 Home
+
+= content sub
+  {{range .Item}}
+    {{.Title}}
+    br
+  {{end}}

@@ -1,9 +1,12 @@
 package main
 
 import (
+	"./model"
 	"flag"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
+	"github.com/jinzhu/gorm"
 	"github.com/yosssi/ace"
 	"log"
 	"net/http"
@@ -13,11 +16,42 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	//response.Header().Set("Content-type", "text/html")
 	//fmt.Fprintf(response, "Hey there!\n")
 
-	tpl, err := ace.Load("view/base", "view/inner", &ace.Options{DynamicReload: true})
+	//--------ORM------
+	db, err := gorm.Open("mysql", "root:web@tcp(192.168.56.102:3306)/leafbox?charset=utf8&parseTime=True&loc=Local")
+
+	if err != nil {
+		panic(err)
+		return
+	}
+
+	var retData struct {
+		Items []model.Book
+	}
+
+	db.Find(&retData.Items)
+
+	log.Println("All rows:")
+	/*	for x, p := range retData.Items {
+			log.Printf("    %d: %v\n", x, p.Title)
+		}
+	*/
+
+	//------TPL-------
+
+	data := map[string]interface{}{
+		"Msg": []string{
+			"Hello",
+			"Ace",
+		},
+		"Item": retData.Items,
+	}
+
+	tpl, err := ace.Load("view/base", "view/home", &ace.Options{DynamicReload: true})
 	if err != nil {
 		panic(err)
 	}
-	if err := tpl.Execute(w, map[string]string{"Msg": "Hello Ace"}); err != nil {
+
+	if err := tpl.Execute(w, data); err != nil {
 		panic(err)
 	}
 }
@@ -40,4 +74,5 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe error: ", err)
 	}
+
 }
