@@ -4,13 +4,22 @@ import (
 	"flag"
 	"fmt"
 	"github.com/gorilla/mux"
+	"github.com/yosssi/ace"
 	"log"
 	"net/http"
 )
 
-func RootHandler(response http.ResponseWriter, request *http.Request) {
-	response.Header().Set("Content-type", "text/html")
-	fmt.Fprintf(response, "Hey there!\n")
+func RootHandler(w http.ResponseWriter, r *http.Request) {
+	//response.Header().Set("Content-type", "text/html")
+	//fmt.Fprintf(response, "Hey there!\n")
+
+	tpl, err := ace.Load("view/base", "view/inner", &ace.Options{DynamicReload: true})
+	if err != nil {
+		panic(err)
+	}
+	if err := tpl.Execute(w, map[string]string{"Msg": "Hello Ace"}); err != nil {
+		panic(err)
+	}
 }
 
 func main() {
@@ -19,7 +28,7 @@ func main() {
 	var staticPath = flag.String("staticPath", "public/", "Path to static files")
 
 	flag.Parse()
-
+	fmt.Println("Start")
 	router := mux.NewRouter()
 	router.HandleFunc("/", RootHandler)
 	router.PathPrefix("/").Handler(http.StripPrefix("", http.FileServer(http.Dir(*staticPath))))

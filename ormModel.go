@@ -1,5 +1,6 @@
 package main
 
+/*
 import (
 	"./model"
 
@@ -36,3 +37,4 @@ func main() {
 	}
 
 }
+*/
