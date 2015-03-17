@@ -1,0 +1,60 @@
+= content main
+  h2 Home
+
+= content sub
+  .panel.panel-primary
+    .panel-heading
+      h3.panel-title Add book
+    .panel-body
+      form action="blank" method="post"
+        .row
+          .col-md-6
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+          .col-md-6
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"
+            .form-group
+              label.col-sm-3.control-label TEXT
+              .col-sm-9
+                input.form-control type="text" name="text"

@@ -2,7 +2,28 @@
   h2 Home
 
 = content sub
-  {{range .Item}}
-    {{.Title}}
-    br
-  {{end}}
+  .row
+    .col-md-offset-1.col-md-5
+      .panel.panel-default
+        .panel-heading
+          | หนังสือที่เพิ่มล่าสุด
+        .panel-body
+          ul.list_group
+            {{range .Item}}
+              a href="/book/{{.Id}}"
+                li.list-group-item
+                  {{.Id}}. {{.Title}} - {{.Author}}
+                  |  (
+                  {{.Pub_year}}
+                  | )
+            {{end}}
+    .col-md-offset-1.col-md-5
+      .panel.panel-default
+        .panel-heading
+          | หนังสือที่ยืมล่าสุด
+        .panel-body
+          ul.list_group
+            a href="book-id"
+              li.list-group-item
+                id title author pub year
+

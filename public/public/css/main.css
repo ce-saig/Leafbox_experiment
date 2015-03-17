@@ -1,0 +1,55 @@
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+  background-color: #ecf0f1;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -135px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.footer {
+  height: 135px; 
+  background-color: #34495e;
+  color: #ecf0f1;
+  padding-top: 10px;
+}
+
+.footer-img {
+  text-align: center;
+}
+
+.panel-hover:hover {
+	border-style: solid;
+	border-width: 2px;
+	border-color: #34495e;
+}
+
+.label-status {
+	font-size: 15px;
+}
+
+.img-logo {
+  height: 120px;
+}
+
+.search-bar {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.list-media {
+  overflow: scroll;
+  height: 300px;
+}
+
+
+a {
+	color : black;
+}
+

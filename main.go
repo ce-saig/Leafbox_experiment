@@ -12,6 +12,16 @@ import (
 	"net/http"
 )
 
+func AddBookHandler(w http.ResponseWriter, r *http.Request) {
+	tpl, err := ace.Load("view/base", "view/book/add", &ace.Options{DynamicReload: true})
+	if err != nil {
+		panic(err)
+	}
+
+	if err := tpl.Execute(w, nil); err != nil {
+		panic(err)
+	}
+}
 func RootHandler(w http.ResponseWriter, r *http.Request) {
 	//response.Header().Set("Content-type", "text/html")
 	//fmt.Fprintf(response, "Hey there!\n")
@@ -28,9 +38,9 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 		Items []model.Book
 	}
 
-	db.Find(&retData.Items)
+	db.Order("id desc").Limit(5).Find(&retData.Items)
 
-	log.Println("All rows:")
+	//log.Println("All rows:")
 	/*	for x, p := range retData.Items {
 			log.Printf("    %d: %v\n", x, p.Title)
 		}
@@ -65,6 +75,7 @@ func main() {
 	fmt.Println("Start")
 	router := mux.NewRouter()
 	router.HandleFunc("/", RootHandler)
+	router.HandleFunc("/add", AddBookHandler)
 	router.PathPrefix("/").Handler(http.StripPrefix("", http.FileServer(http.Dir(*staticPath))))
 
 	addr := fmt.Sprintf("%s:%d", *host, *port)

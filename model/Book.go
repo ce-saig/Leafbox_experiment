@@ -8,35 +8,35 @@ type Book struct {
 	// db tag lets you specify the column name if it differs from the struct field
 
 	Id            int
-	Isbn          string
-	Title         string
-	Author        string
-	Translate     string
-	Grade         string
-	Bm_status     string
-	Bm_note       string
+	Isbn          string `sql:"size:13"`
+	Title         string `sql:"not null" `
+	Author        string `sql:"size:50"`
+	Translate     string `sql:"size:50"`
+	Grade         string `sql:"size:50"`
+	Bm_status     string `sql:"size:50"`
+	Bm_note       string `sql:"size:50"`
 	Bm_date       time.Time
-	Setcs_status  string
-	Setcs_note    string
+	Setcs_status  string `sql:"size:50"`
+	Setcs_note    string `sql:"size:50"`
 	Setcs_date    time.Time
-	Setds_status  string
-	Setds_note    string
+	Setds_status  string `sql:"size:50"`
+	Setds_note    string `sql:"size:50"`
 	Setds_date    time.Time
-	Setcd_status  string
-	Setcd_note    string
+	Setcd_status  string `sql:"size:50"`
+	Setcd_note    string `sql:"size:50"`
 	Setcd_date    time.Time
-	Setdvd_status string
-	Setdvd_note   string
+	Setdvd_status string `sql:"size:50"`
+	Setdvd_note   string `sql:"size:50"`
 	Setdvd_date   time.Time
 	Abstract      string
-	Book_type     string
-	Produce_no    string
-	Original_no   string
+	Book_type     string `sql:"size:20"`
+	Produce_no    string `sql:"size:20"`
+	Original_no   string `sql:"size:20"`
 	Pub_year      int
 	Pub_no        int
-	Publisher     string
-	Updated_at    time.Time
-	Created_at    time.Time
+	Publisher     string    `sql:"size:50"`
+	Updated_at    time.Time `sql:"not null"`
+	Created_at    time.Time `sql:"not null"`
 }
 
 func NewBook(title, author string) Book {
