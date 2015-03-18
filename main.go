@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/jinzhu/gorm"
+	"github.com/yosssi/ace"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -36,4 +38,26 @@ func main() {
 		log.Fatal("ListenAndServe error: ", err)
 	}
 
+}
+
+func MakeView(w http.ResponseWriter, base, inner string, data interface{}) {
+	tpl, err := ace.Load(base, inner, &ace.Options{DynamicReload: true})
+	if err != nil {
+		panic(err)
+	}
+
+	if err := tpl.Execute(w, data); err != nil {
+		panic(err)
+	}
+}
+
+func GetDB() gorm.DB {
+
+	config := getConfig()
+	sql := config["DB_USER"].(string) + ":" + config["DB_PWD"].(string) + "@tcp(localhost:" + config["DB_PORT"].(string) + ")/leafbox?charset=utf8&parseTime=True&loc=Local"
+	db, err := gorm.Open("mysql", sql)
+	if err != nil {
+		panic(err)
+	}
+	return db
 }

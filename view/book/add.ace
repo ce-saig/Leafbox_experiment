@@ -6,55 +6,53 @@
     .panel-heading
       h3.panel-title Add book
     .panel-body
-      form action="blank" method="post"
+      form method="post"
         .row
           .col-md-6
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label isbn
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="isbn"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label title
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="title"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label author
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="author"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label translate
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="translate"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label publisher
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="publisher"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label pub_no
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="pub_no"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label pub_year
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="pub_year"
           .col-md-6
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label produce_no
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="produce_no"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label book_type
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="book_type"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label grade
               .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="grade"
             .form-group
-              label.col-sm-3.control-label TEXT
+              label.col-sm-3.control-label abstract
               .col-sm-9
-                input.form-control type="text" name="text"
-            .form-group
-              label.col-sm-3.control-label TEXT
-              .col-sm-9
-                input.form-control type="text" name="text"
+                input.form-control type="text" name="abstract"
+        .form_group
+          input.btn.btn-success.pull-right value="Add" type="submit"
