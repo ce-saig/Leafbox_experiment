@@ -1,0 +1,6 @@
+{
+//  https://registry.hub.docker.com/u/corbinu/docker-phpmyadmin/
+  "DB_USER" : "root",
+  "DB_PWD" :"password",
+}
+
