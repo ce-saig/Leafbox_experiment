@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./model"
+	//	"./model"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
