@@ -1,7 +1,6 @@
 {
-//  https://registry.hub.docker.com/u/corbinu/docker-phpmyadmin/
-  "DB_PORT" : "49123",
+  "DB_PORT" : "49156",
   "DB_USER" : "root",
-  "DB_PWD" : "password",
+  "DB_PWD" : "password"
 }
 

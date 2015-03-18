@@ -1,7 +1,7 @@
 package main
 
 import (
-	//	"./model"
+	"github.com/ce-saig/Leafbox_experiment/model"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
@@ -22,28 +22,22 @@ func AddBookHandler(w http.ResponseWriter, r *http.Request) {
 
 func RootHandler(w http.ResponseWriter, r *http.Request) {
 	//--------ORM------
-	db, err := gorm.Open("mysql", "root:web@tcp(192.168.56.102:3306)/leafbox?charset=utf8&parseTime=True&loc=Local")
+	db := getDB()
 
-	if err != nil {
-		panic(err)
-		return
-	}
+	var Items []model.Book
 
-	var retData struct {
-		Items []model.Book
-	}
-
-	db.Order("id desc").Limit(5).Find(&retData.Items)
+	db.Order("id desc").Limit(5).Find(&Items)
 	//------TPL-------
 	data := map[string]interface{}{
-		"Msg": []string{
-			"Hello",
-			"Ace",
-		},
-		"Item": retData.Items,
+		"Item": Items,
 	}
 
-	tpl, err := ace.Load("view/base", "view/home", &ace.Options{DynamicReload: true})
+	makeView(w, "view/base", "view/home", data)
+
+}
+
+func makeView(w http.ResponseWriter, base, inner string, data interface{}) {
+	tpl, err := ace.Load(base, inner, &ace.Options{DynamicReload: true})
 	if err != nil {
 		panic(err)
 	}
@@ -53,7 +47,18 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func GetRoute() *mux.Router {
+func getDB() gorm.DB {
+
+	config := getConfig()
+	sql := config["DB_USER"].(string) + ":" + config["DB_PWD"].(string) + "@tcp(localhost:" + config["DB_PORT"].(string) + ")/leafbox?charset=utf8&parseTime=True&loc=Local"
+	db, err := gorm.Open("mysql", sql)
+	if err != nil {
+		panic(err)
+	}
+	return db
+}
+
+func getRoute() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", RootHandler)
 	r.HandleFunc("/add", AddBookHandler)
