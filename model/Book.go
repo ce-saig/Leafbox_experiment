@@ -39,6 +39,7 @@ type Book struct {
 	Created_at    time.Time `sql:"not null"`
 }
 
+/*
 func NewBook(title, author string) Book {
 	return Book{
 		Title:      title,
@@ -47,6 +48,7 @@ func NewBook(title, author string) Book {
 		Created_at: time.Now().UnixNano(),
 	}
 }
+*/
 
 func (b Book) TableName() string {
 	return "book"

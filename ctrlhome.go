@@ -8,6 +8,7 @@ import (
 	//	"github.com/yosssi/ace"
 	"fmt"
 	"net/http"
+	"strconv"
 )
 
 func AddBookHandler(w http.ResponseWriter, r *http.Request) {
@@ -19,11 +20,22 @@ func AddBookPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	db := GetDB()
 
-	noWow := r.FormValue("noWow")
-	fmt.Println(noWow)
+	pubNo, _ := strconv.Atoi(r.FormValue("pub_no"))
+	pubYear, _ := strconv.Atoi(r.FormValue("pub_year"))
 
 	newBook := model.Book{
-	///		Title: r.FormValue("title"),
+		Isbn:        r.FormValue("isbn"),
+		Title:       r.FormValue("title"),
+		Author:      r.FormValue("author"),
+		Translate:   r.FormValue("translate"),
+		Publisher:   r.FormValue("publisher"),
+		Pub_no:      pubNo,
+		Pub_year:    pubYear,
+		Produce_no:  r.FormValue("produce_no"),
+		Original_no: r.FormValue("original_no"),
+		Book_type:   r.FormValue("book_type"),
+		Grade:       r.FormValue("grade"),
+		Abstract:    r.FormValue("abstract"),
 	}
 
 	db.Create(&newBook)

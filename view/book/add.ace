@@ -43,6 +43,10 @@
               .col-sm-9
                 input.form-control type="text" name="produce_no"
             .form-group
+              label.col-sm-3.control-label original_no
+              .col-sm-9
+                input.form-control type="text" name="original_no"
+            .form-group
               label.col-sm-3.control-label book_type
               .col-sm-9
                 input.form-control type="text" name="book_type"
