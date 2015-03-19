@@ -41,10 +41,10 @@ type Book struct {
 
 func NewBook(title, author string) Book {
 	return Book{
-		Title:  title,
-		Author: author,
-		//Updated_at: time.Now().UnixNano(),
-		//Created_at: time.Now().UnixNano(),
+		Title:      title,
+		Author:     author,
+		Updated_at: time.Now().UnixNano(),
+		Created_at: time.Now().UnixNano(),
 	}
 }
 

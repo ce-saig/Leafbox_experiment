@@ -15,7 +15,19 @@ func AddBookHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func AddBookPostHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r.FormValue("title"))
+	fmt.Println()
+
+	db := GetDB()
+
+	noWow := r.FormValue("noWow")
+	fmt.Println(noWow)
+
+	newBook := model.Book{
+	///		Title: r.FormValue("title"),
+	}
+
+	db.Create(&newBook)
+
 	MakeView(w, "view/base", "view/book/add", nil) // Redirect
 }
 
