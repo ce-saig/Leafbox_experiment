@@ -7,12 +7,12 @@ nav.navbar.navbar-default
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href=# Brand
+      a.navbar-brand href=/ Home
 
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
         li.active
-          a href=# Link
+          a href=/add add
             span.sr-only (current)
         li
           a href=# Link
@@ -36,9 +36,9 @@ nav.navbar.navbar-default
       form.navbar-form.navbar-left role=search
         .form-group
           input.form-control type=text placeholder=Search
-        
+
         button.btn.btn-default type=submit Submit
-      
+
       ul.nav.navbar-nav.navbar-right
         li
           a href=# Link

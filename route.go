@@ -12,10 +12,24 @@ import (
 func getRoute() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", RootHandler).Methods("GET")
+	r.HandleFunc("/search", RootHandler)
+	r.HandleFunc("/login", RootHandler)
+	r.HandleFunc("/logout", RootHandler)
 
-	r.HandleFunc("/add", AddBookHandler).Methods("GET")
-	r.HandleFunc("/add", AddBookPostHandler).Methods("POST")
-
+	rBook := r.PathPrefix("/book").Subrouter()
+	rBook.HandleFunc("/add", AddBookHandler).Methods("GET")
+	rBook.HandleFunc("/add", AddBookPostHandler).Methods("POST")
+	/*
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+		r.HandleFunc("/add", AddBookHandler)
+	*/
 	r.PathPrefix("/").Handler(
 		http.StripPrefix("", http.FileServer(http.Dir("public/"))))
 	return r
