@@ -1,0 +1,61 @@
+{{range .}}
+  | ID {{.Id}}
+  br
+  | ISBN {{.Isbn}}
+  br
+  | TITLE {{.Title}}
+  br
+  | Author{{.Author}}
+  br
+  | Translate {{.Translate}}
+  br
+  | Grade {{.Grade}}
+  br
+  | bm status {{.Bm_status}}
+  br
+  | bm note {{.Bm_note}}
+  br
+  | bm date{{.Bm_date}}
+  br
+  | cs status {{.Setcs_status}}
+  br
+  | cs note {{.Setcs_note}}
+  br
+  | cs date {{.Setcs_date}}
+  br
+  | ds status {{.Setds_status}}
+  br
+  | ds note {{.Setds_note}}
+  br
+  | ds date {{.Setds_date}}
+  br
+  | cd status {{.Setcd_status}}
+  br
+  | cd note {{.Setcd_note}}
+  br
+  | cd date {{.Setcd_date}}
+  br
+  | dvd status {{.Setdvd_status}}
+  br
+  | dvd note {{.Setdvd_note}}
+  br
+  | dvd date {{.Setdvd_date}}
+  br
+  | abstract {{.Abstract}}
+  br
+  | book type {{.Book_type}}
+  br
+  | produceno {{.Produce_no}}
+  br
+  | originalno {{.Original_no}}
+  br
+  | pubYear {{.Pub_year}}
+  br
+  | pubNo {{.Pub_no}}
+  br
+  | publisher {{.Publisher}}
+  br
+  | updated {{.Updated_at}}
+  br
+  | created {{.Created_at}}
+{{end}}

@@ -11,6 +11,16 @@ import (
 	"strconv"
 )
 
+func RootHandler(w http.ResponseWriter, r *http.Request) {
+	db := GetDB()
+	var Items []model.Book
+	db.Order("id desc").Limit(5).Find(&Items)
+	data := map[string]interface{}{
+		"Item": Items,
+	}
+	MakeView(w, "view/base", "view/home", data)
+}
+
 func AddBookHandler(w http.ResponseWriter, r *http.Request) {
 	MakeView(w, "view/base", "view/book/add", nil)
 }
@@ -43,18 +53,18 @@ func AddBookPostHandler(w http.ResponseWriter, r *http.Request) {
 	MakeView(w, "view/base", "view/book/add", nil) // Redirect
 }
 
-func RootHandler(w http.ResponseWriter, r *http.Request) {
-	//--------ORM------
+func ViewBookHandler(w http.ResponseWriter, r *http.Request) {
 	db := GetDB()
 
-	var Items []model.Book
+	var Book []model.Book
+	db.First(&Book)
 
-	db.Order("id desc").Limit(5).Find(&Items)
-	//------TPL-------
+	var Braille []model.Braille
+	db.Find(&Braille)
+
 	data := map[string]interface{}{
-		"Item": Items,
+		"Book":    Book,
+		"Braille": Braille,
 	}
-
-	MakeView(w, "view/base", "view/home", data)
-
+	MakeView(w, "view/base", "view/book/view", data)
 }

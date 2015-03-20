@@ -1,0 +1,49 @@
+= content sub
+  div
+    h2 
+      a.btn.btn-danger.pull-right href="edit" Edit
+  ul.nav.nav-tabs.nav-justified role="tablist"
+    li.active role="presentation"
+      a href="#detail" role="tab" data-toggle="tab" detail
+    li role="presentation"
+      a href="#braille" role="braille" data-toggle="tab" onClick="tabSelect(this)" braille
+    li role="presentation"
+      a href="#cassette" role="cassette" data-toggle="tab" onClick="tabSelect(this)" cassette
+    li role="presentation"
+      a href="#daisy" role="daisy" data-toggle="tab" onClick="tabSelect(this)" daisy
+    li role="presentation"
+      a href="#cd" role="cd" data-toggle="tab" onClick="tabSelect(this)" cd
+    li role="presentation"
+      a href="#dvd" role="dvd" data-toggle="tab" onClick="tabSelect(this)" dvd
+  .tab-content
+    .tab-pane.active role="tabpanel" id="detail"
+      .row
+        = include view/book/part/detail .Book 
+    .tab-pane role="tabpanel" id="braille"
+      = include view/book/part/braille .Braille
+      button.addButton data-toggle="modal" data-target="#add" add
+    .tab-pane role="tabpanel" id="cassette"
+      = include view/book/part/cassette .Cassette
+      button.addButton data-toggle="modal" data-target="#add" add
+    .tab-pane role="tabpanel" id="daisy"
+      = include view/book/part/daisy .Daisy
+      button.addButton data-toggle="modal" data-target="#add" add
+    .tab-pane role="tabpanel" id="cd"
+      = include view/book/part/cd .Cd
+      button.addButton data-toggle="modal" data-target="#add" add
+    .tab-pane role="tabpanel" id="dvd"
+      = include view/book/part/dvd .Dvd
+      button.addButton data-toggle="modal" data-target="#add" add
+
+  .modal.fade id="add"
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close data-dismiss="modal"
+            span aria-hidden="true" &times;
+            span.sr-only Close
+          h4.modal-title AddMedia
+        .modal-body
+          | Number:
+          input type="number" id="amount" min="1" value="1" unit
+          button onClick="add()" data-dismiss="modal" add

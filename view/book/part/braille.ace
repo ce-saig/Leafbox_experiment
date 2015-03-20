@@ -1,0 +1,16 @@
+.tab-pane.active id="detail"
+  a.btn.btn-danger.pullright href="deleteall" Delete this media
+  .list-media
+    table.table.table-hover
+      thead
+        tr
+          th width="300" "braille id"
+          th status
+          th pages
+      tbody
+        {{range .}}
+          tr
+            th width="300" {{.Id}}
+            th {{.Reserved}}
+            th {{.Pages}}
+        {{end}}
