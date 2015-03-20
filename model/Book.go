@@ -7,36 +7,36 @@ import (
 type Book struct {
 	// db tag lets you specify the column name if it differs from the struct field
 
-	Id            int
-	Isbn          string `sql:"size:13"`
-	Title         string `sql:"not null" `
-	Author        string `sql:"size:50"`
-	Translate     string `sql:"size:50"`
-	Grade         string `sql:"size:50"`
-	Bm_status     string `sql:"size:50"`
-	Bm_note       string `sql:"size:50"`
-	Bm_date       time.Time
-	Setcs_status  string `sql:"size:50"`
-	Setcs_note    string `sql:"size:50"`
-	Setcs_date    time.Time
-	Setds_status  string `sql:"size:50"`
-	Setds_note    string `sql:"size:50"`
-	Setds_date    time.Time
-	Setcd_status  string `sql:"size:50"`
-	Setcd_note    string `sql:"size:50"`
-	Setcd_date    time.Time
-	Setdvd_status string `sql:"size:50"`
-	Setdvd_note   string `sql:"size:50"`
-	Setdvd_date   time.Time
-	Abstract      string
-	Book_type     string `sql:"size:20"`
-	Produce_no    string `sql:"size:20"`
-	Original_no   string `sql:"size:20"`
-	Pub_year      int
-	Pub_no        int
-	Publisher     string    `sql:"size:50"`
-	Updated_at    time.Time `sql:"not null"`
-	Created_at    time.Time `sql:"not null"`
+	Id           int
+	Isbn         string `sql:"size:13"`
+	Title        string `sql:"not null" `
+	Author       string `sql:"size:50"`
+	Translate    string `sql:"size:50"`
+	Grade        string `sql:"size:50"`
+	BmStatus     string `sql:"size:50"`
+	BmNote       string `sql:"size:50"`
+	BmDate       time.Time
+	SetCsStatus  string `sql:"size:50"`
+	SetCsNote    string `sql:"size:50"`
+	SetCsDate    time.Time
+	SetDsStatus  string `sql:"size:50"`
+	SetDsNote    string `sql:"size:50"`
+	SetDsDate    time.Time
+	SetCdStatus  string `sql:"size:50"`
+	SetCdNote    string `sql:"size:50"`
+	SetCdDate    time.Time
+	SetDvdStatus string `sql:"size:50"`
+	SetDvdNote   string `sql:"size:50"`
+	SetDvdDate   time.Time
+	Abstract     string
+	BookType     string `sql:"size:20"`
+	ProduceNo    string `sql:"size:20"`
+	OriginalNo   string `sql:"size:20"`
+	PubYear      int
+	PubNo        int
+	Publisher    string    `sql:"size:50"`
+	UpdatedAt    time.Time `sql:"not null"`
+	CreatedAt    time.Time `sql:"not null"`
 }
 
 /*

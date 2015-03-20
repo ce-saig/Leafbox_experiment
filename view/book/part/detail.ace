@@ -11,51 +11,51 @@
   br
   | Grade {{.Grade}}
   br
-  | bm status {{.Bm_status}}
+  | bm status {{.BmStatus}}
   br
-  | bm note {{.Bm_note}}
+  | bm note {{.BmNote}}
   br
-  | bm date{{.Bm_date}}
+  | bm date{{.BmDate}}
   br
-  | cs status {{.Setcs_status}}
+  | cs status {{.SetCsStatus}}
   br
-  | cs note {{.Setcs_note}}
+  | cs note {{.SetCsNote}}
   br
-  | cs date {{.Setcs_date}}
+  | cs date {{.SetCsDate}}
   br
-  | ds status {{.Setds_status}}
+  | ds status {{.SetDsStatus}}
   br
-  | ds note {{.Setds_note}}
+  | ds note {{.SetDsNote}}
   br
-  | ds date {{.Setds_date}}
+  | ds date {{.SetDsDate}}
   br
-  | cd status {{.Setcd_status}}
+  | cd status {{.SetCdStatus}}
   br
-  | cd note {{.Setcd_note}}
+  | cd note {{.SetCdNote}}
   br
-  | cd date {{.Setcd_date}}
+  | cd date {{.SetCdDate}}
   br
-  | dvd status {{.Setdvd_status}}
+  | dvd status {{.SetDvdStatus}}
   br
-  | dvd note {{.Setdvd_note}}
+  | dvd note {{.SetDvdNote}}
   br
-  | dvd date {{.Setdvd_date}}
+  | dvd date {{.SetDvdDate}}
   br
   | abstract {{.Abstract}}
   br
-  | book type {{.Book_type}}
+  | book type {{.BookType}}
   br
-  | produceno {{.Produce_no}}
+  | produceno {{.ProduceNo}}
   br
-  | originalno {{.Original_no}}
+  | originalno {{.OriginalNo}}
   br
-  | pubYear {{.Pub_year}}
+  | pubYear {{.PubYear}}
   br
-  | pubNo {{.Pub_no}}
+  | pubNo {{.PubNo}}
   br
   | publisher {{.Publisher}}
   br
-  | updated {{.Updated_at}}
+  | updated {{.UpdatedAt}}
   br
-  | created {{.Created_at}}
+  | created {{.CreatedAt}}
 {{end}}

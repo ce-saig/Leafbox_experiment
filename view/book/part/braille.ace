@@ -5,12 +5,14 @@
       thead
         tr
           th width="300" "braille id"
+          th bookid
           th status
           th pages
       tbody
         {{range .}}
           tr
             th width="300" {{.Id}}
+            th {{.BookId}}
             th {{.Reserved}}
             th {{.Pages}}
         {{end}}

@@ -4,15 +4,15 @@ import (
 	"time"
 )
 
-type Braille struct {
+type Cassette struct {
 	Id          int
 	BookId      int       `sql:"not null"`
+	NumPart     int       `sql:"not null"`
 	Reserved    bool      `sql:"not null"`
-	Examiner    string    `sql:"size:50"`
 	ProduceDate time.Time `sql:"not null"`
-	Pages       int       `sql:"not null"`
+	Notes       string    `sql:"not null"`
 }
 
-func (b Braille) TableName() string {
-	return "braille"
+func (c Cassette) TableName() string {
+	return "cassette"
 }
