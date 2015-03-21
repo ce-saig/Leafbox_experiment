@@ -22,35 +22,35 @@ func getRoute() *mux.Router {
 
 	rBookMenu := rBook.PathPrefix("/").Subrouter()
 	rBookMenu.HandleFunc("/{id:[0-9]+}", ViewBookHandler)
-	/*
-		rBookMenu.HandleFunc("/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/edit", AddBookHandler)
 
-		rBookMenu.HandleFunc("/braille/{id:[0-9]+}", AddBookHandler)
-		rBookMenu.HandleFunc("/braille/{id:[0-9]+}/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/braille/add", AddBookHandler)
-		rBookMenu.HandleFunc("/braille/deleteAll", AddBookHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/edit", AddBookHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/edit", AddBookHandler).Methods("POST")
 
-		rBookMenu.HandleFunc("/cassette/{id:[0-9]+}", AddBookHandler)
-		rBookMenu.HandleFunc("/cassette/{id:[0-9]+}/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/cassette/add", AddBookHandler)
-		rBookMenu.HandleFunc("/cassette/deleteAll", AddBookHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/braille/{id:[0-9]+}", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/braille/{id:[0-9]+}/edit", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/braille/add", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/braille/deleteAll", ViewMediaHandler)
 
-		rBookMenu.HandleFunc("/daisy/{id:[0-9]+}", AddBookHandler)
-		rBookMenu.HandleFunc("/daisy/{id:[0-9]+}/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/daisy/add", AddBookHandler)
-		rBookMenu.HandleFunc("/daisy/deleteAll", AddBookHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cassette/{id:[0-9]+}", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cassette/{id:[0-9]+}/edit", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cassette/add", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cassette/deleteAll", ViewMediaHandler)
 
-		rBookMenu.HandleFunc("/cd/{id:[0-9]+}", AddBookHandler)
-		rBookMenu.HandleFunc("/cd/{id:[0-9]+}/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/cd/add", AddBookHandler)
-		rBookMenu.HandleFunc("/cd/deleteAll", AddBookHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/daisy/{id:[0-9]+}", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/daisy/{id:[0-9]+}/edit", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/daisy/add", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/daisy/deleteAll", ViewMediaHandler)
 
-		rBookMenu.HandleFunc("/dvd/{id:[0-9]+}", AddBookHandler)
-		rBookMenu.HandleFunc("/dvd/{id:[0-9]+}/edit", AddBookHandler)
-		rBookMenu.HandleFunc("/dvd/add", AddBookHandler)
-		rBookMenu.HandleFunc("/dvd/deleteAll", AddBookHandler)
-	*/
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cd/{id:[0-9]+}", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cd/{id:[0-9]+}/edit", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cd/add", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/cd/deleteAll", ViewMediaHandler)
+
+	rBookMenu.HandleFunc("/{id:[0-9]+}/dvd/{id:[0-9]+}", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/dvd/{id:[0-9]+}/edit", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/dvd/add", ViewMediaHandler)
+	rBookMenu.HandleFunc("/{id:[0-9]+}/dvd/deleteAll", ViewMediaHandler)
+
 	r.PathPrefix("/").Handler(
 		http.StripPrefix("", http.FileServer(http.Dir("public/"))))
 	return r

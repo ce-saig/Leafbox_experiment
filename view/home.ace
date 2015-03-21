@@ -14,7 +14,7 @@
                 li.list-group-item
                   {{.Id}}. {{.Title}} - {{.Author}}
                   |  (
-                  {{.Pub_year}}
+                  {{.PubYear}}
                   | )
             {{end}}
     .col-md-offset-1.col-md-5
